@@ -30,6 +30,7 @@ hex pattern decoded as: Ab0A
 Pattern found at position: 30
 
 # decode another representation of the hex value to a string offset
+# use this representation of a hex value in order to force the decoding
 ./pattern.py offset 0x41306241
 hex pattern decoded as: Ab0A
 Pattern found at position: 30
