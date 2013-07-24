@@ -19,7 +19,8 @@ Created a buffer of 128 bytes
 ./pattern.py offset Ab0A
 Pattern found at position: 30
 
-# WARNING: valid hex addresses are not decoded if they are part of the ACTUAL buffer
+# WARNING: valid hex values are not decoded if they are part of the ACTUAL buffer
+# the hex decoding is a fallback measure for the input
 ./pattern.py offset Ab0Ab1
 Pattern found at position: 30
 
