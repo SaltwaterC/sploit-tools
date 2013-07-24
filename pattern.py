@@ -9,7 +9,7 @@ def show_help():
 	print "\tReturns a pattern of <int> chars. Limited to 20280 which is the limit for unique combinations for the Aa0 pattern."
 	print
 	print sys.argv[0] + " offset <str>"
-	print "\tReturns the offset for the provided argument <str>. May be a hex value but the conversion is done automatically for little endian architectures (ie: x86). This basically means that the string obtained from hex conversion is reversed."
+	print "\tReturns the offset for the provided argument <str>. May be a hex value. The conversion is done automatically for little endian architectures (ie: x86). This basically means that the string obtained from hex conversion is reversed. WARNING: The hex decoding is skipped for valid hex values that are part of the string itself!"
 	sys.exit(0)
 
 def show_error(msg):
@@ -20,23 +20,27 @@ def show_pattern(size):
 	size = int(size)
 	if size <= 20280:
 		print buf[:size]
+		print
+		print "Created a buffer of " + str(size) + " bytes"
 	else:
 		show_error("Sorry bub, but for the moment the pattern is limited to 20280 bytes which is the limit for unique combinations of the Aa0 pattern. If you actually need a bigger buffer, it is still possible to use this tool, but you have to do some simple arithmetics all by yourself.")
 
-def convert_offset(offset):
+def decode_offset(offset):
 	offset = offset.replace("0x", "")
 	try:
 		offset = binascii.unhexlify(offset)
 		offset = offset[::-1]
+		print "hex pattern decoded as: " + offset
 		return offset
 	except TypeError:
-		return offset
+		show_error("Invalid input offset.")
 
 def show_offset(offset):	
 	try:
-		print buf.index(offset)
+		print "Pattern found at position: " + str(buf.index(offset))
 	except ValueError:
-		show_error("Invalid input offset.")
+		offset = decode_offset(offset)
+		show_offset(offset)
 
 if __name__ == "__main__":
 	"""
