@@ -9,7 +9,7 @@ def show_help():
 	print "\tReturns a pattern of <int> chars. Limited to 20280 which is the limit for unique combinations for the Aa0 pattern."
 	print
 	print sys.argv[0] + " offset <str>"
-	print "\tReturns the offset for the provided argument <str>. May be a hex value but the conversion is done automatically for little endian architectures (ie: x86). This basically mean that the string obtained from hex conversion is reversed."
+	print "\tReturns the offset for the provided argument <str>. May be a hex value but the conversion is done automatically for little endian architectures (ie: x86). This basically means that the string obtained from hex conversion is reversed."
 	sys.exit(0)
 
 def show_error(msg):
