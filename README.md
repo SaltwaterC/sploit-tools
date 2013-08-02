@@ -10,6 +10,8 @@ The implementation is limited to 20280 bytes buffers which is the maximum length
 
 Simply invoke the script without arguments or junk arguments in order to get the help.
 
+TODO: remove the implementation limits. Return all the offsets for patterns exceeding 20280 bytes.
+
 ### Examples
 
 ```bash
