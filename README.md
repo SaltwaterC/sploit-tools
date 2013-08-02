@@ -1,4 +1,8 @@
-# pattern
+# sploit-tools
+
+My own tools for easing the task of exploit writing.
+
+## pattern
 
 A simple Python script for replicating the functionality of pattern_create.rb and pattern_offset.rb tools of the Metasploit Framework. Useful for exploit writers than only have a python binary around.
 
@@ -6,7 +10,7 @@ The implementation is limited to 20280 bytes buffers which is the maximum length
 
 Simply invoke the script without arguments or junk arguments in order to get the help.
 
-## Examples
+### Examples
 
 ```bash
 # create a 128 bytes buffer
