@@ -6,11 +6,7 @@ My own tools for easing the task of exploit writing.
 
 A simple Python script for replicating the functionality of pattern_create.rb and pattern_offset.rb tools of the Metasploit Framework. Useful for exploit writers than only have a python binary around.
 
-The implementation is limited to 20280 bytes buffers which is the maximum length for a unique string of the Aa0 pattern. In practice, I didn't need more, but at the same time I barely scratched the subject of exploit writing.
-
 Simply invoke the script without arguments or junk arguments in order to get the help.
-
-TODO: remove the implementation limits. Return all the offsets for patterns exceeding 20280 bytes.
 
 ### Examples
 
@@ -40,6 +36,12 @@ Pattern found at position: 30
 ./pattern.py offset 0x41306241
 hex pattern decoded as: Ab0A
 Pattern found at position: 30
+
+# find multiple offsets for patterns exceeding 20280 bytes
+# 20280 bytes is the maximum unique bytes for the Aa0 pattern
+./pattern.py offset Aa0 30000
+0
+20280
 ```
 
 ## hextobin
