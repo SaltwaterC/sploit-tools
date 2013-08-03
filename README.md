@@ -50,7 +50,7 @@ Converts a hex string from an input file to a binary string that's written to an
 
 TODO: help, error reporting.
 
-Notice: this script does a different job than [bin2hex.py](http://www.bialix.com/intelhex/manual/part3-1.html) of the [intelhex library](http://www.bialix.com/intelhex/manual/part1-1.html), hence the name is different.
+Notice: this script does a different job than [hex2bin.py](http://www.bialix.com/intelhex/manual/part3-1.html) of the [intelhex library](http://www.bialix.com/intelhex/manual/part1-1.html), hence the name is different.
 
 ### Example
 
