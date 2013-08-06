@@ -327,10 +327,6 @@ def show_offset(offset, size):
 		show_offset(offset, size)
 
 if __name__ == "__main__":
-	"""
-	Dispatch stuff to the above functions
-	"""
-	
 	if len(sys.argv) == 1:
 		show_help()
 	elif sys.argv[1] != "create" and sys.argv[1] != "offset":
