@@ -36,3 +36,7 @@ nosetests.xml
 
 # Komodo junk
 *.komodoproject
+
+# Test files
+input.hex
+output.bin
