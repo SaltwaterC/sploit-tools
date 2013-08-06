@@ -48,8 +48,6 @@ Pattern found at position: 30
 
 Converts a hex string from an input file to a binary string that's written to an output file. Strips all the whitespace found into the input file.
 
-TODO: help, error reporting.
-
 Notice: this script does a different job than [hex2bin.py](http://www.bialix.com/intelhex/manual/part3-1.html) of the [intelhex library](http://www.bialix.com/intelhex/manual/part1-1.html), hence the name is different.
 
 ### Examples
