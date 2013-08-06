@@ -52,16 +52,28 @@ TODO: help, error reporting.
 
 Notice: this script does a different job than [hex2bin.py](http://www.bialix.com/intelhex/manual/part3-1.html) of the [intelhex library](http://www.bialix.com/intelhex/manual/part1-1.html), hence the name is different.
 
-### Example
+### Examples
 
 ```bash
+# with input file and output file
 cat input.hex
 48 65 6c 6c
 6f20576f726
 
 
 c64
-./hextobin.py input.hex input.bin
-cat input.bin
+./hextobin.py input.hex output.bin
+cat output.bin
+Hello World
+
+# with input from STDIN
+cat input.hex | ./hextobin.py - output.bin
+
+# with output to STDOUT
+./hextobin.py intput.hex -
+Hello World
+
+# with input from STDIN and output to STDOUT
+cat input.hex | ./hextobin.py - -
 Hello World
 ```
