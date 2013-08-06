@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import sys, os, binascii, time
+import sploit
 
 buf = (
 "Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac"
@@ -278,10 +279,6 @@ def show_help():
 	)
 	sys.exit(0)
 
-def show_error(msg):
-	sys.stderr.write(os.linesep * 2 + "ERROR: " + msg + os.linesep * 3)
-	sys.exit(1)
-
 def show_pattern(size):
 	size = int(size)
 	count = size // 20280
@@ -302,7 +299,7 @@ def decode_offset(offset):
 		print "hex pattern decoded as: " + offset
 		return offset
 	except TypeError:
-		show_error("Invalid input offset.")
+		sploit.show_error("Invalid input offset.")
 
 def show_offset(offset, size):
 	try:
@@ -337,7 +334,7 @@ if __name__ == "__main__":
 			if sys.argv[1] == "create" and sys.argv[2].isdigit():
 				show_pattern(sys.argv[2])
 		except IndexError:
-			show_error("You need to supply the <int> value for the create action.")
+			sploit.show_error("You need to supply the <int> value for the create action.")
 		
 		try:
 			if sys.argv[1] == "offset" and sys.argv[2]:
@@ -348,6 +345,6 @@ if __name__ == "__main__":
 				
 				show_offset(sys.argv[2], size)
 		except IndexError:
-			show_error("You need to supply the <str> value for the offset action.")
+			sploit.show_error("You need to supply the <str> value for the offset action.")
 	except KeyboardInterrupt:
-		show_error("Keyboard interrupt received. Educated guess: the script took too long to execute. You used a really long size, didn't you?")
+		sploit.show_error("Keyboard interrupt received. Educated guess: the script took too long to execute. You used a really long size, didn't you?")
