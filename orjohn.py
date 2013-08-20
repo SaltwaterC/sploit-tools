@@ -21,7 +21,7 @@ def orjohn():
 		sploit.show_error("You need to specify an input CSV file.")
 
 if __name__ == "__main__":
-	if len(sys.argv) != 2:
+	if len(sys.argv) != 2 or (sys.argv[1] == "-h" or sys.argv[1] == "--help"):
 		show_help()
 	else:
 		orjohn()
