@@ -75,3 +75,38 @@ Hello World
 cat input.hex | ./hextobin.py - -
 Hello World
 ```
+
+## orjohn
+
+Helper script for formatting a USER$ CSV dump to a file that John the Ripper understands. This scripts expects the hashes used by Oracle up to 11g, including 11g. Doesn't work with the new hashing scheme that 11g Release 1 supports. [References](http://marcel.vandewaters.nl/oracle/security/password-hashes) about how Oracle hashes the passwords.
+
+### Example
+
+```bash
+cat oracle.csv
+"0","SYS","1","4DE42795E66117AE","0","2","12-May-2002 04:18:08 PM","15-Jan-2007 07:43:33 AM","","","0","","1","","","0","0","SYS_GROUP","","","","","","",""
+"1","SYSTEM","1","970BAA5B81930A40","0","2","12-May-2002 04:18:08 PM","15-Jan-2007 07:43:33 AM","","","0","","1","","","0","0","SYS_GROUP","","","","","","",""
+"2","WMSYS","1","7C9BA362F8314299","0","2","12-May-2002 04:44:32 PM","12-May-2002 04:44:32 PM","15-Jan-2007 07:42:31 AM","15-Jan-2007 07:42:31 AM","0","","1","","","9","0","DEFAULT_CONSUMER_GROUP","","","","","","",""
+
+./orjohn.py oracle.csv
+sys:0$SYS#4DE42795E66117AE
+system:0$SYSTEM#970BAA5B81930A40
+wmsys:0$WMSYS#7C9BA362F8314299
+
+./orjohn.py oracle.csv > oracle.txt
+
+john --format:oracle oracle.txt
+Loaded 3 password hashes with 3 different salts (Oracle 10 DES [32/64])
+SYSTEM           (system)
+SYS              (sys)
+WMSYS            (wmsys)
+guesses: 3  time: 0:00:00:00 DONE (Tue Aug 20 17:46:21 2013)  c/s: 300  trying:
+Use the "--show" option to display all of the cracked passwords reliably
+
+john --format:oracle oracle.txt --show
+sys:SYS
+system:SYSTEM
+wmsys:WMSYS
+
+3 password hashes cracked, 0 left
+```
