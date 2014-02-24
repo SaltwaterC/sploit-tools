@@ -110,3 +110,33 @@ wmsys:WMSYS
 
 3 password hashes cracked, 0 left
 ```
+
+## sqlncode
+
+Simple MySQL string to HEX and string to CHAR() encoder. Why? Because [online encoders](http://www.waraxe.us/sql-char-encoder.html) take me out of the CLI and I haven't found one by searching the almighy Google. If it takes me less time to actually write a tool than to find it, then something is really wrong with the SERP.
+
+### Example
+
+```bash
+# The most basic usage.
+./sqlncode.py /etc/passwd
+String to encode: =>/etc/passwd<=
+MySQL HEX: 0x2f6574632f706173737764
+MySQL DEC: CHAR(47,101,116,99,47,112,97,115,115,119,100)
+
+# The quotes, as expected, are ignored.
+./sqlncode.py "/etc/passwd"
+String to encode: =>/etc/passwd<=
+MySQL HEX: 0x2f6574632f706173737764
+MySQL DEC: CHAR(47,101,116,99,47,112,97,115,115,119,100)
+./sqlncode.py '/etc/passwd'
+String to encode: =>/etc/passwd<=
+MySQL HEX: 0x2f6574632f706173737764
+MySQL DEC: CHAR(47,101,116,99,47,112,97,115,115,119,100)
+
+# Yes, it has bare words. Beware of whitespaces at the start / end of the string!
+./sqlncode.py this tool supports bare words when you don\'t need whitespaces at the start or end
+String to encode: =>this tool supports bare words when you don't need whitespaces at the start or end<=
+MySQL HEX: 0x7468697320746f6f6c20737570706f727473206261726520776f726473207768656e20796f7520646f6e2774206e65656420776869746573706163657320617420746865207374617274206f7220656e64
+MySQL DEC: CHAR(116,104,105,115,32,116,111,111,108,32,115,117,112,112,111,114,116,115,32,98,97,114,101,32,119,111,114,100,115,32,119,104,101,110,32,121,111,117,32,100,111,110,39,116,32,110,101,101,100,32,119,104,105,116,101,115,112,97,99,101,115,32,97,116,32,116,104,101,32,115,116,97,114,116,32,111,114,32,101,110,100)
+```
