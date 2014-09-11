@@ -9,8 +9,8 @@ def show_help():
 
 def orjohn():
 	try:
-		with open(sys.argv[1], 'rb') as csvfile:
-			reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+		with open(sys.argv[1], "rb") as csvfile:
+			reader = csv.reader(csvfile, delimiter=",", quotechar="\"")
 			try:
 				for row in reader:
 					if len(str(row[3])) == 16:
