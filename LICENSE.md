@@ -1,4 +1,4 @@
-Copyright (c) 2013, Ștefan Rusu
+Copyright (c) 2013-2014, Ștefan Rusu
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
