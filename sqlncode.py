@@ -23,7 +23,10 @@ def sqlncode():
 	print "MySQL DEC: CHAR(" + ",".join(str(c) for c in dec_str) + ")"
 
 if __name__ == "__main__":
-	if sys.argv[1] == "-h":
+	try:
+		if sys.argv[1] == "-h":
+			show_help()
+		else:
+			sqlncode()
+	except IndexError:
 		show_help()
-	else:
-		sqlncode()
