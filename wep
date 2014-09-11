@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+which python > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+	echo "Using the python implementation."
+	echo
+	./wep.py "$@"
+	exit 0
+fi
+
+which node > /dev/null 2>&1
+if [ $? -eq 0 ]
+then
+	echo "Using the node implementation."
+	echo
+	./wep.js "$@"
+	exit 0
+fi
+
+>&2 echo "Fatal: Unable to find a suitable runtime for python or node."
+exit 1

@@ -142,7 +142,9 @@ MySQL DEC: CHAR(116,104,105,115,32,116,111,111,108,32,115,117,112,112,111,114,11
 
 ## wep
 
-Uses an input string to generated WEP keys by using the so called "[de facto standard](http://stackoverflow.com/questions/2890438/how-can-i-generate-40-64-bit-wep-key-in-python)". This algorihm is used by various router vendors to generate the WEP keys by using a password. Examples: Linksys, Netgear, Belkin, DLink. The code was ported from a pure JavaScript implementation. A node.js version is also available.
+Uses an input string to generated WEP keys by using the so called "[de facto standard](http://stackoverflow.com/questions/2890438/how-can-i-generate-40-64-bit-wep-key-in-python)". This algorihm is used by various router vendors to generate the WEP keys by using a password. Examples: Linksys, Netgear, Belkin, DLink.
+
+The code was ported from a pure JavaScript implementation. A node.js version is also available. A convenience wrapper written in bash is also available. It tries to run the Python implementation. If python isn't in $PATH, it falls back to node. If node isn't in $PATH, it presents an error message.
 
 The reason why this script exists is the fact that my WiFi lab uses a Netgear router. Pentesting WiFi has the bad habbit of leaving me without Internet connection. Hence, a generator that runs on my machine is often required instead of using an online generator.
 
