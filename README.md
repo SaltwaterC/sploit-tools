@@ -139,3 +139,23 @@ The used string: =>this tool supports bare words when you don't need whitespaces
 MySQL HEX: 0x7468697320746f6f6c20737570706f727473206261726520776f726473207768656e20796f7520646f6e2774206e65656420776869746573706163657320617420746865207374617274206f722061742074686520656e64206f662074686520737472696e67
 MySQL DEC: CHAR(116,104,105,115,32,116,111,111,108,32,115,117,112,112,111,114,116,115,32,98,97,114,101,32,119,111,114,100,115,32,119,104,101,110,32,121,111,117,32,100,111,110,39,116,32,110,101,101,100,32,119,104,105,116,101,115,112,97,99,101,115,32,97,116,32,116,104,101,32,115,116,97,114,116,32,111,114,32,97,116,32,116,104,101,32,101,110,100,32,111,102,32,116,104,101,32,115,116,114,105,110,103)
 ```
+
+## wep
+
+Uses an input string to generated WEP keys by using the so called "[de facto standard](http://stackoverflow.com/questions/2890438/how-can-i-generate-40-64-bit-wep-key-in-python)". This algorihm is used by various router vendors to generate the WEP keys by using a password. Examples: Linksys, Netgear, Belkin, DLink. The code was ported from a pure JavaScript implementation. A node.js version is also available.
+
+The reason why this script exists is the fact that my WiFi lab uses a Netgear router. Pentesting WiFi has the bad habbit of leaving me without Internet connection. Hence, a generator that runs on my machine is often required instead of using an online generator.
+
+### Example
+
+```bash
+/wep.py foobar
+The used string: =>foobar<=
+WEP 40 key1: A4BEB3B8EC
+WEP 40 key2: B697E900C8
+WEP 40 key3: B5D2BB755B
+WEP 40 key4: 197EA2ABE7
+WEP 104 key: 49D68437B1FFB0DB3FDF2D4A93
+```
+
+The same bare words support from sqlncode was implemented here. The above examples apply.

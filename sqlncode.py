@@ -15,7 +15,7 @@ def show_help():
 	print "Spared you the trouble for doing things \"the hard way\"."
 
 def sqlncode():
-	string = sploit.bare_words(sys.argv)
+	string = sploit.bare_words()
 	
 	print "MySQL HEX: 0x" + string.encode("hex")
 	
