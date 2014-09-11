@@ -14,17 +14,16 @@ def show_help():
 	print
 	print "Spared you the trouble for doing things \"the hard way\"."
 
-def sqlncode(argv):
-	str_to_ncode = " ".join(argv[1:])
-	print "String to encode: =>" + str_to_ncode + "<="
+def sqlncode():
+	string = sploit.bare_words(sys.argv)
 	
-	print "MySQL HEX: 0x" + str_to_ncode.encode("hex")
+	print "MySQL HEX: 0x" + string.encode("hex")
 	
-	dec_str = list(bytearray(str_to_ncode))
+	dec_str = list(bytearray(string))
 	print "MySQL DEC: CHAR(" + ",".join(str(c) for c in dec_str) + ")"
 
 if __name__ == "__main__":
-	if sys.argv[1] == '-h':
+	if sys.argv[1] == "-h":
 		show_help()
 	else:
-		sqlncode(sys.argv)
+		sqlncode()
