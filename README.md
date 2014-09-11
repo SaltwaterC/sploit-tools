@@ -149,6 +149,7 @@ The reason why this script exists is the fact that my WiFi lab uses a Netgear ro
 ### Example
 
 ```bash
+# The Python version
 /wep.py foobar
 The used string: =>foobar<=
 WEP 40 key1: A4BEB3B8EC
@@ -156,6 +157,31 @@ WEP 40 key2: B697E900C8
 WEP 40 key3: B5D2BB755B
 WEP 40 key4: 197EA2ABE7
 WEP 104 key: 49D68437B1FFB0DB3FDF2D4A93
+
+./wep.py foo bar
+The used string: =>foo bar<=
+WEP 40 key1: 94CE6E1345
+WEP 40 key2: 3DE0C45DB6
+WEP 40 key3: 6F69BDE821
+WEP 40 key4: BCC9F992B9
+WEP 104 key: 5F8FDCB2090ACEB521077F4BC3
+
+# The node.js version
+./wep.js foobar
+The used string: =>foobar<=
+WEP 40 key1: A4BEB3B8EC
+WEP 40 key2: B697E900C8
+WEP 40 key3: B5D2BB755B
+WEP 40 key4: 197EA2ABE7
+WEP 104 key: 49D68437B1FFB0DB3FDF2D4A93
+
+./wep.js foo bar
+The used string: =>foo bar<=
+WEP 40 key1: 94CE6E1345
+WEP 40 key2: 3DE0C45DB6
+WEP 40 key3: 6F69BDE821
+WEP 40 key4: BCC9F992B9
+WEP 104 key: 5F8FDCB2090ACEB521077F4BC3
 ```
 
 The same bare words support from sqlncode was implemented here. The above examples apply.
