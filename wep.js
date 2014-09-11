@@ -14,7 +14,7 @@ function binToHex(chr) {
 
 var wep40 = function (str) {
 	var pseed = [0, 0, 0, 0];
-	var k64 = ["", "", "", ""];
+	var k64 = ['', '', '', ''];
 	var i, j, tmp;
 	
 	for (i = 0; i < str.length; i++) {
@@ -35,7 +35,7 @@ var wep40 = function (str) {
 }
 
 var padTo64 = function (str) {
-	var i, n, ret = "";
+	var i, n, ret = '';
 	
 	n = 1 + (64 / (str.length));
 	
