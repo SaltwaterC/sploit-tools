@@ -1,6 +1,6 @@
 # sploit-tools
 
-My own tools for easing the task of exploit writing.
+My own tools for easing the task of pentesting / exploit writing.
 
 ## pattern
 
@@ -187,3 +187,39 @@ WEP 104 key: 5F8FDCB2090ACEB521077F4BC3
 ```
 
 The same bare words support from sqlncode was implemented here. The above examples apply.
+
+## shellshock
+
+Easily test the system for the presence of CVE-2014-6271 and CVE-2014-7169 - also known as [Shellshock](http://en.wikipedia.org/wiki/Shellshock_%28software_bug%29). The script iterates all the $PATH directories, looking for bash and sh. Some systems, like OS X, also use bash for sh.
+
+If the word *VULNERABLE* is in the output, then the shell isn't patched.
+
+For OS X, [a pull request](https://github.com/Homebrew/homebrew/pull/32671) for CVE-2014-7169 is pending for Homebrew, while the system provided bash/sh needs to be [manually patched](http://apple.stackexchange.com/a/146851).
+
+### Example
+
+```bash
+# on a patched system it doesn't show anything
+./shellshock.sh
+Testing /bin/sh for CVE-2014-6271
+Testing /bin/sh for CVE-2014-7169
+
+Testing /bin/bash for CVE-2014-6271
+Testing /bin/bash for CVE-2014-7169
+
+# on a vulnerable OS X
+./shellshock.sh
+Testing /usr/local/bin/bash for CVE-2014-6271
+Testing /usr/local/bin/bash for CVE-2014-7169
+VULNERABLE
+
+Testing /bin/sh for CVE-2014-6271
+VULNERABLE
+Testing /bin/sh for CVE-2014-7169
+VULNERABLE
+
+Testing /bin/bash for CVE-2014-6271
+VULNERABLE
+Testing /bin/bash for CVE-2014-7169
+VULNERABLE
+```
