@@ -192,7 +192,7 @@ The same bare words support from sqlncode was implemented here. The above exampl
 
 Easily test the system for the presence of CVE-2014-6271 and CVE-2014-7169 - also known as [Shellshock](http://en.wikipedia.org/wiki/Shellshock_%28software_bug%29). The script iterates all the $PATH directories, looking for bash and sh. Some systems, like OS X, also use bash for sh.
 
-If the word *VULNERABLE* is in the output, then the shell isn't patched.
+If the word *VULNERABLE* is in the output, then the shell isn't patched. I am doing Captain Obvious here. Yes, it's **THAT** serious.
 
 For OS X, [a pull request](https://github.com/Homebrew/homebrew/pull/32671) for CVE-2014-7169 is pending for Homebrew, while the system provided bash/sh needs to be [manually patched](http://apple.stackexchange.com/a/146851).
 
