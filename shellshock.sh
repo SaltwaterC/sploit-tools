@@ -21,7 +21,7 @@ function cve_2014_7169
 function cve_2014_7186
 {
 	echo "${bold}Testing $1 for CVE-2014-7186${normal}"
-	{bash -c "true $(printf '<<EOF %.0s' {1..79})"} > /dev/null 2>&1
+	bash -c "true $(printf '<<EOF %.0s' {1..79})" > /dev/null 2>&1
 	if [ $? -ne 0 ]
 	then
 		echo "VULNERABLE"
